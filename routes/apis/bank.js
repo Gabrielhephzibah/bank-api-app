@@ -7,6 +7,7 @@ router.get('/', (req, res, next) =>{
     Bank.find()
     .then((posts) =>{
         res.json(posts);
+    
     })
     .catch(err => console.log(err))
 
@@ -19,6 +20,7 @@ router.get('/single/:id', (req, res, next) => {
     Bank.findById(id)
         .then((bank) => {
             res.json(bank);
+        
         })
         .catch(err => console.log(err))
 });
@@ -37,6 +39,8 @@ router.post('/create', (req, res, next) =>{
     newBank.save()
     .then(bank => {
         res.json(bank);
+        ({message: "account created successfully"})
+
     })
     .catch(err => console.log(err));
 });
